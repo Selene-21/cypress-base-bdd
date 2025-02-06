@@ -1,5 +1,12 @@
-import { Given } from "@badeball/cypress-cucumber-preprocessor";
+import { Given, When } from "@badeball/cypress-cucumber-preprocessor";
 
-Given(`que un usuario ingresa a la página {string}`, (url) => {
+Given(`que un usuario ingresa a la página de {string}`, (url) => {
+  if (url === "pokemon") {
+    url = "https://www.pokemon.com/el";
+  }
   cy.visit(url);
+});
+
+When(`presiona {string}`, (btnText) => {
+  cy.contains(btnText).click();
 });
